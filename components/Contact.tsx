@@ -49,168 +49,157 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-                {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-6 md:mb-10"
-                >
-                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold uppercase tracking-tight mb-2">
-                        Get In <span className="text-primary text-glow">Touch</span>
-                    </h2>
-                    <p className="text-neutral-400 text-sm md:text-base max-w-xl mx-auto font-light">
-                        Ready to transform your fitness journey? Reach out to us and let's build something extraordinary together.
+                {/* Header with Logo Left and Text Right */}
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/5 pb-8 mb-10">
+                    <div className="flex items-center gap-4">
+                        <img
+                            src="/logo.png"
+                            alt="A2 Gym Logo"
+                            className="h-16 md:h-20 object-contain"
+                        />
+                        <div className="h-10 w-px bg-primary/30 hidden sm:block"></div>
+                        <div>
+                            <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight">
+                                A2 <span className="text-primary">Fitness</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div className="text-right hidden sm:block">
+                        <p className="text-primary text-[10px] uppercase tracking-[0.3em] font-bold mb-1">High Performance Center</p>
+                        <p className="text-neutral-500 text-[9px] uppercase tracking-[0.2em] font-medium">Powerlifting • Bodybuilding • Fitness</p>
+                    </div>
+                </div>
+
+                <div className="flex flex-col gap-10">
+                    <p className="text-neutral-400 text-sm md:text-base max-w-3xl font-light leading-relaxed">
+                        Step into the arena of champions. Located in Nagra Toli, Ranchi, we provide the iron and the expertise to help you forge your strongest self. Connect with our team of experts today.
                     </p>
-                </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
-                    {/* Contact Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="bg-neutral-900/50 backdrop-blur-sm border border-white/5 rounded-sm p-4 md:p-6"
-                    >
-                        <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-wide mb-4">
-                            Send us a message
-                        </h3>
-                        {isSubmitted ? (
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="h-full flex flex-col items-center justify-center py-10 text-center"
-                            >
-                                <div className="size-16 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 mb-4">
-                                    <span className="material-symbols-outlined text-4xl">check_circle</span>
+                    {/* Contact Cards - Single Row on Desktop */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="bg-neutral-900/40 backdrop-blur-md border border-white/5 rounded-sm p-6 flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500">
+                            <div className="size-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-500">
+                                <span className="material-symbols-outlined text-2xl">location_on</span>
+                            </div>
+                            <h4 className="text-[10px] font-display font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Location</h4>
+                            <p className="text-white text-sm font-medium leading-relaxed">
+                                S.N. Yadav Road, Nagra Toli,<br />Near Raam Pyaari Hospital, Ranchi
+                            </p>
+                        </div>
+
+                        <div className="bg-neutral-900/40 backdrop-blur-md border border-white/5 rounded-sm p-6 flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500">
+                            <div className="size-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-500">
+                                <span className="material-symbols-outlined text-2xl">call</span>
+                            </div>
+                            <h4 className="text-[10px] font-display font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Contact</h4>
+                            <p className="text-white text-lg font-bold tracking-tighter">6205449126</p>
+                            <p className="text-neutral-500 text-[10px] uppercase font-bold mt-1 tracking-widest">Call / WhatsApp</p>
+                        </div>
+
+                        <div className="bg-neutral-900/40 backdrop-blur-md border border-white/5 rounded-sm p-6 flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500">
+                            <div className="size-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-500">
+                                <span className="material-symbols-outlined text-2xl">mail</span>
+                            </div>
+                            <h4 className="text-[10px] font-display font-bold uppercase tracking-[0.2em] text-neutral-500 mb-2">Inquiries</h4>
+                            <p className="text-white text-sm font-medium">thea2gym.in@gmail.com</p>
+                            <p className="text-neutral-500 text-[10px] uppercase font-bold mt-1 tracking-widest">@the_a2_gym (Instagram)</p>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                        {/* Form - 2/5 width */}
+                        <div className="lg:col-span-2 bg-neutral-900/50 backdrop-blur-sm border border-white/5 rounded-sm p-6">
+                            <h3 className="text-xl font-display font-bold uppercase tracking-wide mb-6">
+                                Send a message
+                            </h3>
+                            {isSubmitted ? (
+                                <div className="h-full flex flex-col items-center justify-center py-10 text-center">
+                                    <div className="size-16 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 mb-4">
+                                        <span className="material-symbols-outlined text-4xl">check_circle</span>
+                                    </div>
+                                    <h4 className="text-xl font-display font-bold uppercase mb-2">Submission Received</h4>
+                                    <p className="text-neutral-400 text-sm">Our trainers will contact you shortly.</p>
                                 </div>
-                                <h4 className="text-xl font-display font-bold uppercase mb-2">Message Sent!</h4>
-                                <p className="text-neutral-400 text-sm">We'll get back to you within 24 hours.</p>
-                            </motion.div>
-                        ) : (
-                            <form className="space-y-3 md:space-y-4" onSubmit={handleSubmit}>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            ) : (
+                                <form className="space-y-4" onSubmit={handleSubmit}>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-[10px] uppercase tracking-widest text-neutral-500 mb-1 font-bold">First Name</label>
+                                            <input
+                                                required
+                                                type="text"
+                                                placeholder="Enter"
+                                                className="w-full bg-black/50 border border-white/10 rounded-sm px-4 py-2.5 text-white text-sm placeholder:text-white/10 focus:outline-none focus:border-primary transition-colors"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-[10px] uppercase tracking-widest text-neutral-500 mb-1 font-bold">Last Name</label>
+                                            <input
+                                                required
+                                                type="text"
+                                                placeholder="Name"
+                                                className="w-full bg-black/50 border border-white/10 rounded-sm px-4 py-2.5 text-white text-sm placeholder:text-white/10 focus:outline-none focus:border-primary transition-colors"
+                                            />
+                                        </div>
+                                    </div>
+
                                     <div>
-                                        <label className="block text-xs uppercase tracking-widest text-neutral-400 mb-2 font-bold">First Name</label>
+                                        <label className="block text-[10px] uppercase tracking-widest text-neutral-500 mb-1 font-bold">Email Address</label>
                                         <input
                                             required
-                                            type="text"
-                                            placeholder="John"
-                                            className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors"
+                                            type="email"
+                                            placeholder="your@email.com"
+                                            className="w-full bg-black/50 border border-white/10 rounded-sm px-4 py-2.5 text-white text-sm placeholder:text-white/10 focus:outline-none focus:border-primary transition-colors"
                                         />
                                     </div>
+
                                     <div>
-                                        <label className="block text-xs uppercase tracking-widest text-neutral-400 mb-2 font-bold">Last Name</label>
-                                        <input
-                                            required
-                                            type="text"
-                                            placeholder="Doe"
-                                            className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors"
-                                        />
+                                        <label className="block text-[10px] uppercase tracking-widest text-neutral-500 mb-1 font-bold">Training Interest</label>
+                                        <select required className="w-full bg-black/50 border border-white/10 rounded-sm px-4 py-2.5 text-white text-sm focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
+                                            <option value="">Choose your path</option>
+                                            <option value="strength">Strength Training</option>
+                                            <option value="powerlifting">Powerlifting</option>
+                                            <option value="bodybuilding">Bodybuilding</option>
+                                            <option value="fitness">General Fitness</option>
+                                        </select>
                                     </div>
-                                </div>
 
-                                <div>
-                                    <label className="block text-xs uppercase tracking-widest text-neutral-400 mb-2 font-bold">Email Address</label>
-                                    <input
-                                        required
-                                        type="email"
-                                        placeholder="john@example.com"
-                                        className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors"
-                                    />
-                                </div>
+                                    <div>
+                                        <label className="block text-[10px] uppercase tracking-widest text-neutral-500 mb-1 font-bold">Message</label>
+                                        <textarea
+                                            required
+                                            rows={3}
+                                            placeholder="Write your goals..."
+                                            className="w-full bg-black/50 border border-white/10 rounded-sm px-4 py-2.5 text-white text-sm placeholder:text-white/10 focus:outline-none focus:border-primary transition-colors resize-none"
+                                        ></textarea>
+                                    </div>
 
-                                <div>
-                                    <label className="block text-xs uppercase tracking-widest text-neutral-400 mb-1 font-bold">Interest</label>
-                                    <select required className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white text-sm focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
-                                        <option value="">Select a program</option>
-                                        <option value="strength">Strength Training</option>
-                                        <option value="cardio">Cardio & Endurance</option>
-                                        <option value="recovery">Recovery & Mobility</option>
-                                        <option value="personal">Personal Training</option>
-                                        <option value="membership">Membership Inquiry</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label className="block text-xs uppercase tracking-widest text-neutral-400 mb-1 font-bold">Message</label>
-                                    <textarea
-                                        required
-                                        rows={2}
-                                        placeholder="Tell us about your fitness goals..."
-                                        className="w-full bg-black/50 border border-white/10 rounded-sm px-3 py-2 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors resize-none"
-                                    ></textarea>
-                                </div>
-
-                                <button
-                                    disabled={isSubmitting}
-                                    type="submit"
-                                    className="w-full bg-primary hover:bg-primary/90 text-white font-display font-bold uppercase tracking-widest py-3 text-sm rounded-sm transition-all shadow-[0_0_20px_rgba(218,11,46,0.3)] hover:shadow-[0_0_30px_rgba(218,11,46,0.5)] flex items-center justify-center gap-2">
-                                    {isSubmitting ? (
-                                        <div className="size-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                                    ) : 'Send Message'}
-                                </button>
-                            </form>
-                        )}
-                    </motion.div>
-
-                    {/* Contact Information */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="flex flex-col gap-4"
-                    >
-                        {/* Contact Cards - Compact Grid */}
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                            <div className="bg-neutral-900/50 backdrop-blur-sm border border-white/5 rounded-sm p-4 flex flex-col items-center text-center">
-                                <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-2">
-                                    <span className="material-symbols-outlined text-xl">location_on</span>
-                                </div>
-                                <h4 className="text-sm font-display font-bold uppercase mb-1">Visit Us</h4>
-                                <p className="text-neutral-400 text-[10px] leading-tight">Nagra Toli, Near Raam Pyaari Hospital, Ranchi</p>
-                            </div>
-
-                            <div className="bg-neutral-900/50 backdrop-blur-sm border border-white/5 rounded-sm p-4 flex flex-col items-center text-center">
-                                <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-2">
-                                    <span className="material-symbols-outlined text-xl">call</span>
-                                </div>
-                                <h4 className="text-sm font-display font-bold uppercase mb-1">Call Us</h4>
-                                <p className="text-neutral-400 text-xs">6205449126</p>
-                            </div>
-
-                            <div className="bg-neutral-900/50 backdrop-blur-sm border border-white/5 rounded-sm p-4 flex flex-col items-center text-center">
-                                <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-2">
-                                    <span className="material-symbols-outlined text-xl">mail</span>
-                                </div>
-                                <h4 className="text-sm font-display font-bold uppercase mb-1">Email Us</h4>
-                                <p className="text-neutral-400 text-xs">thea2gym.in@gmail.com</p>
-                            </div>
+                                    <button
+                                        disabled={isSubmitting}
+                                        type="submit"
+                                        className="w-full bg-primary hover:bg-primary/90 text-white font-display font-bold uppercase tracking-widest py-4 text-xs rounded-sm transition-all shadow-[0_0_20px_rgba(218,11,46,0.3)] hover:shadow-[0_0_30px_rgba(218,11,46,0.5)] flex items-center justify-center gap-2">
+                                        {isSubmitting ? (
+                                            <div className="size-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                        ) : 'Secure Membership'}
+                                    </button>
+                                </form>
+                            )}
                         </div>
 
-                        {/* Operating Hours - Compact */}
-                        <div className="bg-neutral-900/50 backdrop-blur-sm border border-white/5 rounded-sm p-4 text-center">
-                            <h4 className="text-sm font-display font-bold uppercase tracking-wide mb-3 flex items-center justify-center gap-2">
-                                <span className="material-symbols-outlined text-primary text-lg">schedule</span>
-                                Operating Hours
-                            </h4>
-                            <div className="text-center">
-                                <span className="text-neutral-400 block text-xs mb-1">Everyday</span>
-                                <span className="text-white font-bold uppercase tracking-tighter text-lg">05:00 AM - 10:00 PM</span>
-                            </div>
+                        {/* Map - 3/5 width */}
+                        <div className="lg:col-span-3 h-[450px] bg-neutral-900/50 backdrop-blur-sm border border-white/5 rounded-sm overflow-hidden p-1">
+                            <iframe
+                                title="A2 Gym Location"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.9546059286466!2d85.3283!3d23.3768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1329177a499%3A0x6a100653fbca3b6!2sNagra%20Toli%2C%20Ranchi%2C%20Jharkhand%20834001!5e0!3m2!1sen!2sin!4v1705660000000!5m2!1sen!2sin"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0, filter: 'grayscale(1) invert(0.9) contrast(1.2)' }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            />
                         </div>
-
-                        <div className="bg-neutral-900/50 backdrop-blur-sm border border-white/5 rounded-sm p-4">
-                            <div className="flex flex-col items-center gap-1">
-                                <p className="text-[10px] text-neutral-500 text-center uppercase tracking-widest leading-relaxed">
-                                    Nagra Toli, Near Raam Pyaari Hospital,<br />SN Yadav Road, Ranchi
-                                </p>
-                            </div>
-                        </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>
