@@ -9,6 +9,7 @@ import Testimonials from './components/Testimonials';
 import StartTraining from './components/StartTraining';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import FloatingContact from './components/FloatingContact';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
+      <FloatingContact />
     </div>
   );
 };

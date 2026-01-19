@@ -3,29 +3,36 @@ import { motion } from 'framer-motion';
 
 const MEMBERSHIP_PLANS = [
     {
-        name: 'Starter',
-        price: '49',
+        name: 'Monthly',
+        price: '1,500',
         period: '/month',
-        description: 'Perfect for beginners starting their fitness journey',
-        features: ['Access to gym floor', 'Basic equipment usage', '2 group classes/week', 'Locker room access'],
+        description: 'Flexible monthly membership for consistent training',
+        features: ['Full Gym Access', 'Modern Equipment', 'Expert Trainers', 'Clean & Hygienic'],
         popular: false,
     },
     {
-        name: 'Elite',
-        price: '99',
-        period: '/month',
-        description: 'Our most popular plan for serious athletes',
-        features: ['24/7 gym access', 'All premium equipment', 'Unlimited group classes', 'Personal training session/month', 'Nutrition consultation', 'Recovery zone access'],
+        name: 'Yearly Special',
+        price: '9,999',
+        originalPrice: '11,999',
+        period: '/year',
+        description: 'Grand Opening Offer - First 50 Members Only',
+        features: ['Full Gym Access', 'Modern Equipment', 'Personalized Workouts', 'Huge Savings'],
         popular: true,
     },
     {
-        name: 'Pro',
-        price: '199',
-        period: '/month',
-        description: 'For those who demand the absolute best',
-        features: ['Everything in Elite', 'Dedicated personal trainer', 'Custom meal planning', 'Priority booking', 'Guest passes (2/month)', 'Exclusive workshops'],
+        name: 'Couple Plan',
+        price: '18,000',
+        originalPrice: '23,000',
+        period: '/year',
+        description: 'Train together and transform together',
+        features: ['2 Person Access', 'Full Gym Facilities', 'Modern Equipment', 'Best Value for Pairs'],
         popular: false,
     },
+];
+
+const ADDITIONAL_PLANS = [
+    { name: '3 Months', price: '4,000' },
+    { name: '6 Months', price: '7,000' },
 ];
 
 const StartTraining: React.FC = () => {
@@ -83,9 +90,25 @@ const StartTraining: React.FC = () => {
                             </div>
 
                             <div className="mb-4">
-                                <span className="text-3xl md:text-4xl font-display font-bold text-white">${plan.price}</span>
+                                {(plan as any).originalPrice && (
+                                    <span className="block text-neutral-500 text-sm line-through mb-1">
+                                        ₹{(plan as any).originalPrice}
+                                    </span>
+                                )}
+                                <span className="text-3xl md:text-4xl font-display font-bold text-white">₹{plan.price}</span>
                                 <span className="text-neutral-400 text-sm">{plan.period}</span>
                             </div>
+
+                            {plan.name === 'Monthly' && (
+                                <div className="mb-4 pt-3 border-t border-white/5 space-y-2">
+                                    {ADDITIONAL_PLANS.map(sub => (
+                                        <div key={sub.name} className="flex justify-between items-center bg-white/5 px-3 py-1.5 rounded-sm">
+                                            <span className="text-xs text-neutral-400 font-medium">{sub.name}</span>
+                                            <span className="text-xs text-white font-bold">₹{sub.price}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
 
                             <ul className="space-y-2 mb-5">
                                 {plan.features.map((feature, i) => (

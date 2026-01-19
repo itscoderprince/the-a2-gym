@@ -132,7 +132,7 @@ const Navbar: React.FC = () => {
                     transition={{ delay: 0.4 }}
                   >
                     <p className="text-[9px] font-display font-bold uppercase tracking-widest text-white/20 mb-1">Visit Us</p>
-                    <p className="text-[11px] text-white/50 leading-relaxed font-light line-clamp-2">123 Elite Fitness Blvd, Los Angeles, CA</p>
+                    <p className="text-[11px] text-white/50 leading-relaxed font-light line-clamp-2">The A2 Gym (Nagra Toli)</p>
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
@@ -140,9 +140,18 @@ const Navbar: React.FC = () => {
                     transition={{ delay: 0.5 }}
                   >
                     <p className="text-[9px] font-display font-bold uppercase tracking-widest text-white/20 mb-1">Contact</p>
-                    <p className="text-sm text-white/80 font-medium tracking-wide">+1 (555) ELITE-99</p>
+                    <p className="text-sm text-white/80 font-medium tracking-wide">6205449126</p>
                   </motion.div>
                 </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55 }}
+                >
+                  <p className="text-[9px] font-display font-bold uppercase tracking-widest text-white/20 mb-1">Email</p>
+                  <p className="text-sm text-white/80 font-medium tracking-wide">thea2gym.in@gmail.com</p>
+                </motion.div>
 
                 <motion.button
                   initial={{ opacity: 0, y: 20 }}
